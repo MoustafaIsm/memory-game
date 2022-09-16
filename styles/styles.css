@@ -41,7 +41,6 @@ img {
 
 .card {
     position: relative;
-    background-color: aqua;
 }
 
 .img-wrapper {
@@ -50,6 +49,12 @@ img {
     border-radius: 20px;
     position: absolute;
     z-index: 5;
+}
+
+.img-wrapper > img {
+    background-color: #bfd7ea;
+    width: 100%;
+    border-radius: 20px;
 }
 
 .cover {
@@ -61,22 +66,21 @@ img {
     z-index: 10;
 }
 
+.cover:hover {
+    cursor: pointer;
+    background-color: #f8413d;
+}
+
 /* Score Restart */
 .score-restart-wrapper {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.score-restart-wrapper > * {
+.score-restart-wrapper > div {
     text-align: center;
     margin: 10px 0px;
-}
-
-.score-wrapper {
-
-}
-
-.restart-wrapper {
-
 }
 
 /* Utilities */
