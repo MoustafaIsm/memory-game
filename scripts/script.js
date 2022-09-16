@@ -18,9 +18,13 @@ const startGame = () => {
     startBtn.removeEventListener("click", startGame);
 };
 
+const restartGame = () => {
+    window.location.href = "./index.html";
+}
+
 // Event listenres
 startBtn.addEventListener("click", startGame);
-
+restartBtn.addEventListener("click", restartGame);
 
 // Helper functions
 const randomizeImages = () => {
@@ -76,11 +80,11 @@ const setEventListenersForCards = () => {
                     else
                         score = 0;
                     updateScoreDisplay("wrong");
-                    cleanOpenedImages();
                     let timer = setInterval(() => {
                         // After 2 secs close both opened images
                         clearInterval(timer);
                         hideTheOpenedImages(i);
+                        cleanOpenedImages();
                     }, 2000);
                 }
             }
@@ -92,8 +96,10 @@ const setEventListenersForCards = () => {
 const updateScoreDisplay = (type) => {
     if (type == "right")
         scoreDisplay.style.color = "green";
-    else
+    else if (type == "wrong")
         scoreDisplay.style.color = "red";
+    else
+        scoreDisplay.style.color = "black";
     scoreDisplay.textContent = "Score: " + score;
 };
 
